@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 import { Landing } from '../landing/landing';
-import { Leftsidebar} from '../leftsidebar/leftsidebar';
-
+import { Leftsidebar } from './Components/leftsidebar/leftsidebar';
 @Component({
   selector: 'app-layout',
   standalone: true,

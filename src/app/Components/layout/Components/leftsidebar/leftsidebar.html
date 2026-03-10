@@ -1,0 +1,28 @@
+<div class="sidebar-overlay" [class.visible]="isMenuOpen" (click)="toggleMenu()"></div>
+
+<div class="sidebar" [class.is-open]="isMenuOpen">
+    <button class="close-btn" (click)="toggleMenu()"><i class="bi bi-x"></i></button>
+
+    <div>
+        <button class="create-btn">+ Create New Post</button>
+    </div>
+
+    <nav class="nav-links">
+        <a class="nav-item" routerLink="/home" routerLinkActive="active" (click)="isMenuOpen = false"><span class="link-icon"></span>Home</a>
+        <a class="nav-item" routerLink="/blog" routerLinkActive="active" (click)="isMenuOpen = false"><span class="link-icon"></span>Blog</a>
+        <a class="nav-item" routerLink="/about" routerLinkActive="active" (click)="isMenuOpen = false"><span class="link-icon"></span>Explore</a>
+        <a class="nav-item" routerLink="/contact" routerLinkActive="active" (click)="isMenuOpen = false"><span class="link-icon"></span>Reading List</a>
+    </nav>
+
+    <div class="tag-section">
+        <h4 class="tags-title">EXPLORE TAGS</h4>
+        <ul class="tags-container">
+            <li class="tags-item"><a class="tags-link" routerLink="">Apollo</a></li>
+            <li class="tags-item"><a class="tags-link" routerLink="">Design</a></li>
+            <li class="tags-item"><a class="tags-link" routerLink="">Angular</a></li>
+            <li class="tags-item"><a class="tags-link" routerLink="">Platform</a></li>
+        </ul>
+    </div>
+</div>
+
+<button class="hamburger-menu" (click)="toggleMenu()"><i class="bi bi-list"></i></button>
