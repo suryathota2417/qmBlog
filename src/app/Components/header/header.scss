@@ -1,5 +1,5 @@
 
-.header {
+.header-main {
   width: 100%;
   background-color: #1770f6ae;
   padding: 5px;
@@ -20,7 +20,7 @@
     position: relative;
     width: 100%;
 
-    input {
+    .search-desktop {
       width: 100%;
       padding: 10px 15px 10px 40px;
       border-radius: 25px;
@@ -33,13 +33,13 @@
       }
     }
 
-    i {
+    .search-icon {
       position: absolute;
       left: 15px;
       top: 50%;
       transform: translateY(-50%);
       color: #9e9595;
-      font-size: 16px;
+      font-size: 20px;
     }
   }
 
@@ -61,7 +61,7 @@
   justify-content: center;
   background-color: rgb(242, 231, 231);
 
-  .bell {
+  .bell-icon {
     font-size: 20px;
     cursor: pointer;
   }
@@ -89,7 +89,7 @@
   cursor: pointer;
   background: #f5f5f5;
 
-  i {
+  .user-icon {
     font-size: 20px;
   }
 
@@ -113,7 +113,7 @@
   justify-content: center;
   background-color: rgb(242, 231, 231);
 
-  i{
+  .settings-icon{
     font-size: 20px;
     cursor: pointer;
   }
@@ -129,14 +129,14 @@
   visibility: hidden;
   transition: all 0.3s ease;
 
-  ul{
+  .unorder-list{
     list-style: none;
     padding: 6px 0;
     margin: 0;
     border-radius: 6px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 
-    li{
+    .list-item{
       padding: 6px 16px;
       cursor: pointer;
 
@@ -161,7 +161,7 @@
   display:none;
   gap:15px;
 
-  i{
+  .mb-icons{
     font-size:22px;
     cursor:pointer;
   }
@@ -174,7 +174,7 @@
   padding:10px;
   // background:white;
 
-  input{
+  .search-mobile{
     width:100%;
     padding:10px;
     border-radius:20px;
@@ -283,7 +283,7 @@
 }
 
 .logo{
-  width:35px;
+  width:30px;
 }
 
 }
