@@ -1,4 +1,4 @@
- <div class="container-fluid header">
+ <div class="container-fluid header-main">
   <div class="row align-items-center m-0 p-0">
 
     <div class="col logo-col">
@@ -11,8 +11,8 @@
 
     <div class="col search-col">
       <div class="search-box">
-        <i class="bi bi-search"></i>
-        <input type="text" placeholder="Search Posts, topics, or authors" />
+        <i class="bi bi-search search-icon"></i>
+        <input class="search-desktop" type="text" placeholder="Search Posts, topics, or authors" />
       </div>
     </div>
 
@@ -20,34 +20,34 @@
     <div class="col profile-col">
 
       <p class="notification">
-        <i class="bi bi-bell-fill bell"></i>
+        <i class="bi bi-bell-fill bell-icon"></i>
         <span class="badge" *ngIf="a >= 0">{{ a }}</span>
       </p>
 
       <div class="profile-dropdown">
-        <i class="bi bi-person-circle"></i>
+        <i class="bi bi-person-circle user-icon"></i>
         <span class="username">User</span>
       </div>
 
       <p class="settings" (click)="popup()">
-        <i class="bi bi-gear"></i>
+        <i class="bi bi-gear settings-icon"></i>
       </p>
 
       <div class="dropdown" [class.show]="showPopup">
-        <ul>
-          <li>View Profile</li>
-          <li>Account Settings</li>
-          <li>My Posts</li>
-          <li>Create New Post</li>
-          <li>Logout</li>
+        <ul class="unorder-list">
+          <li class="list-item">View Profile</li>
+          <li class="list-item">Account Settings</li>
+          <li class="list-item">My Posts</li>
+          <li class="list-item">Create New Post</li>
+          <li class="list-item">Logout</li>
         </ul>
       </div>
       
 <!-- mobile setup -->
 
       <div class="mobile-icons">
-        <i class="bi bi-search" (click)="toggleSearch()"></i>
-        <i class="bi bi-gear" (click)="toggleMenu()"></i>
+        <i class="bi bi-search mb-icons" (click)="toggleSearch()"></i>
+        <i class="bi bi-gear mb-icons" (click)="toggleMenu()"></i>
       </div>
 
     </div>
@@ -55,7 +55,7 @@
 
   <!-- MOBILE SEARCH -->
   <div class="mobile-search" *ngIf="showSearch">
-    <input type="text" placeholder="Search Posts, topics, or authors" />
+    <input class="search-mobile" type="text" placeholder="Search Posts, topics, or authors" />
   </div>
 
 </div>
