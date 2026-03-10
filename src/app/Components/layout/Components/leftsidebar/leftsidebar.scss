@@ -73,7 +73,7 @@ $mobile-breakpoint: 768px;
     display: flex;
     flex-direction: column;
 
-    a {
+    .nav-item {
       display: flex;
       align-items: center;
       text-decoration: none;
@@ -83,7 +83,7 @@ $mobile-breakpoint: 768px;
       width: fit-content;
       font-size: 1rem;
 
-      span {
+      .link-icon {
         margin-right: 10px;
       }
 
@@ -113,7 +113,7 @@ $mobile-breakpoint: 768px;
   .tag-section {
     margin-top: 10px;
 
-    h4 {
+    .tags-title {
       font-size: 0.75rem;
       font-weight: 700;
       color: #6b7280;
@@ -122,7 +122,7 @@ $mobile-breakpoint: 768px;
       letter-spacing: 0.05em;
     }
 
-    ul {
+    .tags-container {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -130,8 +130,8 @@ $mobile-breakpoint: 768px;
       margin: 0;
       list-style: none;
 
-      li {
-        a {
+      .tags-item {
+        .tags-link {
           display: inline-block;
           padding: 6px 12px;
           background-color: $tag-bg;
