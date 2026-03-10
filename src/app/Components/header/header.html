@@ -1,5 +1,6 @@
-<div class="container-fluid header">
+ <div class="container-fluid header">
   <div class="row align-items-center m-0 p-0">
+
     <div class="col logo-col">
       <img
         class="logo"
@@ -15,7 +16,9 @@
       </div>
     </div>
 
+  
     <div class="col profile-col">
+
       <p class="notification">
         <i class="bi bi-bell-fill bell"></i>
         <span class="badge" *ngIf="a >= 0">{{ a }}</span>
@@ -24,28 +27,65 @@
       <div class="profile-dropdown">
         <i class="bi bi-person-circle"></i>
         <span class="username">User</span>
-      
       </div>
 
-<p class="settings" (click)="popup()">
-  <i class="bi bi-gear"></i>
-</p>
+      <p class="settings" (click)="popup()">
+        <i class="bi bi-gear"></i>
+      </p>
 
-<div class="dropdown" [class.show]="showPopup">
-  <ul>
-    <li>View Profile</li>
-    <li>Account Settings</li>
-    <li>My Posts</li>
-    <li>Create New Post</li>
-    <li>Logout</li>
-  </ul>
-</div>    
+      <div class="dropdown" [class.show]="showPopup">
+        <ul>
+          <li>View Profile</li>
+          <li>Account Settings</li>
+          <li>My Posts</li>
+          <li>Create New Post</li>
+          <li>Logout</li>
+        </ul>
+      </div>
+      
+<!-- mobile setup -->
+
+      <div class="mobile-icons">
+        <i class="bi bi-search" (click)="toggleSearch()"></i>
+        <i class="bi bi-gear" (click)="toggleMenu()"></i>
+      </div>
+
     </div>
   </div>
+
+  <!-- MOBILE SEARCH -->
+  <div class="mobile-search" *ngIf="showSearch">
+    <input type="text" placeholder="Search Posts, topics, or authors" />
+  </div>
+
 </div>
 
+<!-- HAMBURGER -->
+<div class="mobile-menu" [class.open]="showMenu">
 
+  <div class="menu-header">
+    <span>Menu</span>
+    <i class="bi bi-x-lg close-btn" (click)="toggleMenu()"></i>
+  </div>
 
+  <div class="menu-content">
 
+    <div class="menu-item">
+      <i class="bi bi-bell"></i>
+      Notifications
+    </div>
 
+    <div class="menu-item">
+      <i class="bi bi-person-circle"></i>
+      User
+    </div>
 
+    <div class="menu-item">View Profile</div>
+    <div class="menu-item">Account Settings</div>
+    <div class="menu-item">My Posts</div>
+    <div class="menu-item">Create New Post</div>
+    <div class="menu-item logout">Logout</div>
+
+  </div>
+
+</div>

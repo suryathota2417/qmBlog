@@ -1,3 +1,4 @@
+
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
@@ -10,11 +11,23 @@ import { Component } from '@angular/core';
 export class Header {
 
   a:number = 0;
-  showPopup: boolean = false;
+
+  showPopup:boolean = false;
+
+  showSearch:boolean = false;
+
+  showMenu:boolean = false;
 
   popup(){
     this.showPopup = !this.showPopup;
-  } 
+  }
+
+  toggleSearch(){
+    this.showSearch = !this.showSearch;
+  }
+
+  toggleMenu(){
+    this.showMenu = !this.showMenu;
+  }
 
 }
-
