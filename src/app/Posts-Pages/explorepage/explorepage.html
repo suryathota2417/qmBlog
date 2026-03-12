@@ -1,0 +1,59 @@
+<div class="main-feed">
+
+  <div class="feed-header ">
+    <h2>Welcome, User! Latest Posts</h2>
+
+    <select class="sort-dropdown">
+      <option>Sort by: Relevant</option>
+      <option>Newest</option>
+      <option>Most Popular</option>
+    </select>
+  </div>
+
+  <div class="posts-list">
+
+    <article class="post-card m-1" *ngFor="let post of posts">
+
+      <img class="thumbnail" [src]="post.image">
+
+      <span class="category">{{post.category}}</span>
+      <div class="post-meta">
+        <h5 class="post-title">
+          <a href="#" class="post-link">
+            {{post.title}}
+          </a>
+        </h5>
+        <div class="author-info">
+          <img class="avatar" [src]="post.avatar">
+          <span>{{post.author}}</span>
+          <span>{{post.date}}</span>
+          <span>{{post.readTime}} min read</span>
+        </div>
+       
+      </div>
+
+      <p class="summary">
+        {{post.summary}}
+      </p>
+
+      <div class="post-footer">
+
+        <div>
+          <button class="icon-btn"><i class="bi bi-hand-thumbs-up icon"></i>{{post.likes}}</button>
+          <button class="icon-btn"><i class="bi bi-chat icon"></i> {{post.comments}}</button>
+        </div>
+
+        <div>
+          <button class="icon-btn"><i class="bi bi-bookmark icon"></i></button>
+          <button class="icon-btn"><i class="bi bi-share-fill icon"></i></button>
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+  <button class="icon-btn">Load More</button>
+
+</div>   
