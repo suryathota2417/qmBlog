@@ -1,9 +1,6 @@
-$sidebar-bg: #f4f4f4;
-$primary-color: #3b82f6;
-$tag-bg: #e5e7eb;
-$tag-hover-bg: #d1d5db;
-$tag-text: #4b5563;
-$hashtag-color: #9ca3af;
+$sidebar-bg: #ffff;
+$primary-color:black;
+$tag-color:#ffff;
 $mobile-breakpoint: 768px;
 
 .sidebar {
@@ -19,7 +16,7 @@ $mobile-breakpoint: 768px;
 
   @media (max-width: $mobile-breakpoint) {
     position: fixed;
-    top: 0;
+    top: 60px;
     left: 0;
     z-index: 1000;
     transform: translateX(-100%); 
@@ -28,6 +25,10 @@ $mobile-breakpoint: 768px;
     &.is-open {
       transform: translateX(0);
     }
+  }
+
+  .circle-icon{
+    font-size: 20px;
   }
 
   .close-btn {
@@ -77,7 +78,7 @@ $mobile-breakpoint: 768px;
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #333;
+      color:$primary-color;
       padding: 10px 0;
       position: relative;
       width: fit-content;
@@ -116,7 +117,7 @@ $mobile-breakpoint: 768px;
     .tags-title {
       font-size: 0.75rem;
       font-weight: 700;
-      color: #6b7280;
+      color:$primary-color;
       margin-bottom: 12px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -134,8 +135,8 @@ $mobile-breakpoint: 768px;
         .tags-link {
           display: inline-block;
           padding: 6px 12px;
-          background-color: $tag-bg;
-          color: $tag-text;
+          background-color:rgb(50, 171, 141);
+          color: $tag-color;
           border-radius: 20px;
           text-decoration: none;
           font-size: 0.85rem;
@@ -143,14 +144,12 @@ $mobile-breakpoint: 768px;
 
           &::before {
             content: "#";
-            color: $hashtag-color;
+            color: $tag-color;
             margin-right: 2px;
             font-weight: bold;
           }
 
           &:hover {
-            background-color: $tag-hover-bg;
-            color: #000;
             transform: translateY(-1px);
           }
         }
@@ -160,6 +159,7 @@ $mobile-breakpoint: 768px;
 }
 .hamburger-menu {
   display: none; 
+  color: white; // ensure icon is white
   
   @media (max-width: $mobile-breakpoint) {
     display: block;
@@ -171,6 +171,7 @@ $mobile-breakpoint: 768px;
     border: none;
     cursor: pointer;
     z-index: 900;
+    color: white; // reinforce for responsive state
   }
 }
 
