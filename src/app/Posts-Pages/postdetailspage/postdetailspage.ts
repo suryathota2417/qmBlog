@@ -24,9 +24,9 @@ export class Postdetailspage {
     },
 
     postInfo: {
-      published: "Published: 1/3/26",
-      updated: "Updated: 10/6/26",
-      readTime: "6 min read"
+      published: "Published Mar 10, 2026",
+      updated: "Updated Mar 11, 2026",
+      readTime: "6 "
     },
 
     featuredImage:
