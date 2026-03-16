@@ -8,6 +8,11 @@
   <div class="main">
     <div>
       <h1 class="post-title">{{ postData.title }}</h1>
+      <div class="post-info">
+        <span>{{ postData.postInfo.published }}</span>
+        <span>{{ postData.postInfo.updated }}</span>
+        <span>{{ postData.postInfo.readTime }}<i class="bi bi-clock"></i></span>
+      </div>
     </div>
 
     <div class="author-meta">
@@ -18,12 +23,6 @@
           <a class="author" href="https://www.w3schools.com/">{{ postData.author.name }}</a>
           <span class="bio">{{ postData.author.bio }}</span>
         </div>
-      </div>
-
-      <div class="post-info">
-        <span>{{ postData.postInfo.published }}</span>
-        <span>{{ postData.postInfo.updated }}</span>
-        <span>{{ postData.postInfo.readTime }}</span>
       </div>
     </div>
   </div>
@@ -46,7 +45,7 @@
     </div>
 
     <div class="share">
-      <span class="share-title">Share this post:</span>
+      <span class="share-title">Share On:</span>
 
       <button class="share-btn twitter">
         <i class="bi bi-twitter-x"></i>
@@ -65,7 +64,7 @@
   <hr class="divider" />
 
   <section class="comments">
-    <h3 class="comment-head">COMMENTS (12)</h3>
+    <h3 class="comment-head">Comments (12)</h3>
 
     <div class="comment-form">
       <h4 class="comment-subhead">Leave a Comment</h4>
@@ -82,7 +81,7 @@
 
       <div class="comment-content">
         <div class="meta">
-          <strong>{{ comment.user }}</strong>
+          <strong class="reply-user">{{ comment.user }}</strong>
           <span>{{ comment.time }}</span>
         </div>
 
@@ -90,10 +89,10 @@
 
         <div class="actions">
           <button class="reply-button">Reply</button>
-          <button class="reply-button"><i class="bi bi-hand-thumbs-up"></i> {{ comment.likes }}</button>
+          <button class="reply-button">
+            <i class="bi bi-hand-thumbs-up"></i> {{ comment.likes }}
+          </button>
         </div>
-
-
 
         <div class="reply" *ngFor="let reply of comment.replies">
           <div class="comment">
@@ -109,7 +108,9 @@
 
               <div class="actions">
                 <button class="reply-button">Reply</button>
-                <button class="reply-button"><i class="bi bi-hand-thumbs-up"></i> {{ reply.likes }}</button>
+                <button class="reply-button">
+                  <i class="bi bi-hand-thumbs-up"></i> {{ reply.likes }}
+                </button>
               </div>
             </div>
           </div>
