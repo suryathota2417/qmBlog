@@ -1,0 +1,120 @@
+.main-feed {
+  max-width: 800px;
+  margin: auto;
+  .feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    .sort-dropdown {
+      padding: 5px 5px;
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .post-card {
+      border-radius: 8px;
+      padding:10px 10px;
+      background: white;
+
+      .thumbnail {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 10px;
+      }
+
+      .category {
+        font-size: 12px;
+        color:black;
+        margin: 0px !important;
+        font-weight: bold;
+      }
+
+      .post-meta {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+        font-size: 12px;
+        color: gray;
+        margin: 3px 0;
+        .post-title{
+          color: black;
+          .post-link{
+            color: black;
+            text-decoration: none;
+          }
+        }
+        .author-info {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .avatar {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+        }
+      }
+      .post-footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+
+        .icon-btn {
+          border: none;
+          background: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .icon-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 8px;
+  }
+}
+@media (max-width: 768px) {
+
+  .post-meta{
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .feed-header{
+    flex-direction: column;
+    margin-bottom: 20px !important;
+    .sort-dropdown{
+      align-self: flex-end;
+      margin-top: 10px;
+    }
+  }
+
+  .author-info{
+    margin-top: 5px;
+    flex-wrap: wrap;
+  }
+
+  .summary{
+    margin-top: 5px;
+  }
+
+}
+@media (min-width:1024px){
+    .main-feed{
+      max-width:1000px;
+    }
+ }
