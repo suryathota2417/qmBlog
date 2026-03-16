@@ -1,4 +1,4 @@
-$sidebar-bg: #ffff;
+$sidebar-bg:white;
 $primary-color:black;
 $tag-color:#ffff;
 $mobile-breakpoint: 768px;
@@ -48,10 +48,9 @@ $mobile-breakpoint: 768px;
     }
   }
 
-  div {
-    button {
-      width: 100%;
-      padding: 10px;
+  .btn-container {
+    .create-btn{
+      padding: 8px 10px;
       background-color: $primary-color;
       color: white;
       border: none;
@@ -59,6 +58,11 @@ $mobile-breakpoint: 768px;
       cursor: pointer;
       font-weight: 600;
       transition: opacity 0.2s, transform 0.1s;
+
+      .circle-icon{
+        margin-right: 10px;
+
+      }
 
       &:hover {
         opacity: 0.9;
@@ -159,19 +163,19 @@ $mobile-breakpoint: 768px;
 }
 .hamburger-menu {
   display: none; 
-  color: white; // ensure icon is white
+  color: white; 
   
   @media (max-width: $mobile-breakpoint) {
     display: block;
     position: fixed;
     top: 15px;
-    left: 15px;
+    left: 5px;
     font-size: 24px;
     background: none;
     border: none;
     cursor: pointer;
     z-index: 900;
-    color: white; // reinforce for responsive state
+    color: white; 
   }
 }
 
