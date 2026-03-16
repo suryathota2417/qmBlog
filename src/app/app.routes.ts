@@ -4,6 +4,6 @@ import { Postdetailspage } from './Posts-Pages/postdetailspage/postdetailspage';
 
 export const routes: Routes = [
     {path: '', component: Explorepage},
-    {path: '/details', component:Postdetailspage},
+    {path: 'post-details', component:Postdetailspage},
 
 ]
