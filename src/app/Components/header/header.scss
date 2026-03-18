@@ -189,7 +189,7 @@
 // }
 
 
-/* MOBILE HAMBURGER */
+
 
 .mobile-menu {
   position: fixed;
@@ -220,7 +220,6 @@
 
 
 
-/* tab VIEW */
 
 @media (max-width: 780px) {
   .logo-col {
@@ -289,11 +288,12 @@
 
   .mobile-search {
     display: block;
-    padding: 10px;
+    padding-top: 15px;
 
     .search-mobile {
       width: 100%;
-      padding: 10px;
+      padding:5px ;
+      padding-left: 20px;
       border-radius: 20px;
       border: 1px solid #ddd;
     }
@@ -337,6 +337,17 @@
         cursor: pointer;
         align-items: center;
         // text-align: center;
+        .profilenav {
+          color: white;
+          text-decoration: none;
+
+                  &:hover {
+          background: #f5f5f5;
+          border-radius: 10px;
+          color: black;
+          padding: 5px;
+        }
+        }
 
         &:hover {
           background: #f5f5f5;

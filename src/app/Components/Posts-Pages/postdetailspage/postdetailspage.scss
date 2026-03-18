@@ -15,7 +15,7 @@ $font-body: 18px;
 
 .post-container {
   margin: auto;
-  padding: 30px 30px;
+  padding: 10px 10px;
 }
 
 .breadcrumb {
@@ -386,7 +386,7 @@ $font-body: 18px;
 
 
   .post-container {
-    padding: 15px 20px;
+    padding: 5px 10px;
     overflow-x: hidden;
   }
 
@@ -510,6 +510,16 @@ $font-body: 18px;
 .divider {
   margin: 12px 0;
   border: 1px solid black;
+}
+
+.view-more {
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 14px;
 }
 
 }
