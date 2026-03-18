@@ -15,8 +15,4 @@ export const routes: Routes = [
   },
   {path:'profile',component:Profile}
 ];
-  {
-    path: 'create-post',
-    component:Createpostpage
-  }
-];
+
