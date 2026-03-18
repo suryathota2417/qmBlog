@@ -4,13 +4,13 @@
     <button class="close-btn" (click)="toggleMenu()"><i class="bi bi-x"></i></button>
 
     <div  class="btn-container">
-        <button class="create-btn"> <i class="bi bi-plus-circle circle-icon"></i> Create New Post</button>
+        <button class="create-btn" [routerLink]="'/create-post'"> <i class="bi bi-plus-circle circle-icon"></i> Create New Post</button>
     </div>
 
     <nav class="nav-links">
         <a class="nav-item" routerLink="/home" routerLinkActive="active" (click)="isMenuOpen = false"><span class="link-icon"></span>Home</a>
         <a class="nav-item" routerLink="/blog" routerLinkActive="active" (click)="isMenuOpen = false"><span class="link-icon"></span>Blog</a>
-        <a class="nav-item" routerLink="/about" routerLinkActive="active" (click)="isMenuOpen = false"><span class="link-icon"></span>Explore</a>
+        <a class="nav-item" routerLink="/" routerLinkActive="" (click)="isMenuOpen = false"><span class="link-icon"></span>Explore</a>
         <a class="nav-item" routerLink="/contact" routerLinkActive="active" (click)="isMenuOpen = false"><span class="link-icon"></span>Reading List</a>
     </nav>
 

@@ -1,22 +1,21 @@
-
 <div class="main-feed">
-
+ 
   <div class="feed-header ">
     <h2>Welcome, User! Latest Posts</h2>
-
+ 
     <select class="sort-dropdown">
       <option>Sort by: Relevant</option>
       <option>Newest</option>
       <option>Most Popular</option>
     </select>
   </div>
-
+ 
   <div class="posts-list">
-
+ 
     <article class="post-card m-1" *ngFor="let post of posts">
-
-      <img class="thumbnail" [src]="post.image">
-
+ 
+      <!-- <img class="thumbnail" [src]="post.image"> -->
+ 
       <p class="category">{{post.category}}</p>
       <div class="post-meta">
         
@@ -33,29 +32,31 @@
         </div>
        
       </div>
-
+ 
       <p class="summary">
         {{post.summary}}
       </p>
-
+ 
       <div class="post-footer">
-
+ 
         <div>
           <button class="icon-btn"><i class="bi bi-hand-thumbs-up icon"></i>{{post.likes}}</button>
           <button class="icon-btn"><i class="bi bi-chat icon"></i> {{post.comments}}</button>
         </div>
-
+ 
         <div>
           <button class="icon-btn"><i class="bi bi-bookmark icon"></i></button>
           <button class="icon-btn"><i class="bi bi-share-fill icon"></i></button>
         </div>
-
+ 
       </div>
-
+ 
     </article>
-
+ 
   </div>
-
+ 
   <button class="icon-btn">Load More</button>
-
+ 
 </div>    
+ 
+ 

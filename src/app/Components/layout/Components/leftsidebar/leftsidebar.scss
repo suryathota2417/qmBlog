@@ -1,7 +1,25 @@
-$sidebar-bg:white;
-$primary-color:black;
-$tag-color:#ffff;
+$sidebar-bg: white;
+$primary-color: black;
+$tag-color: #fff;
 $mobile-breakpoint: 768px;
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
 
 .sidebar {
   width: 250px;
@@ -13,22 +31,19 @@ $mobile-breakpoint: 768px;
   gap: 20px;
   box-sizing: border-box;
   transition: transform 0.3s ease-in-out;
+  z-index: 1000;
 
   @media (max-width: $mobile-breakpoint) {
     position: fixed;
     top: 60px;
     left: 0;
-    z-index: 1000;
-    transform: translateX(-100%); 
+    gap: 10px;
+    transform: translateX(-100%);
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 
     &.is-open {
       transform: translateX(0);
     }
-  }
-
-  .circle-icon{
-    font-size: 20px;
   }
 
   .close-btn {
@@ -40,28 +55,29 @@ $mobile-breakpoint: 768px;
       background: none;
       border: none;
       font-size: 1.5rem;
-      color: #333;
       cursor: pointer;
-      padding: 0;
+      color: #666;
       margin-bottom: 10px;
-      width: auto;
     }
   }
 
   .btn-container {
-    .create-btn{
-      padding: 8px 10px;
+    .create-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
       background-color: $primary-color;
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: 600;
-      transition: opacity 0.2s, transform 0.1s;
+      transition: 0.2s;
 
-      .circle-icon{
-        margin-right: 10px;
-
+      .circle-icon {
+        margin-right: 8px;
+        font-size: 18px;
       }
 
       &:hover {
@@ -69,7 +85,7 @@ $mobile-breakpoint: 768px;
       }
 
       &:active {
-        transform: scale(0.98);
+        transform: scale(0.97);
       }
     }
   }
@@ -79,18 +95,12 @@ $mobile-breakpoint: 768px;
     flex-direction: column;
 
     .nav-item {
-      display: flex;
-      align-items: center;
       text-decoration: none;
-      color:$primary-color;
+      color: $primary-color;
       padding: 10px 0;
       position: relative;
       width: fit-content;
       font-size: 1rem;
-
-      .link-icon {
-        margin-right: 10px;
-      }
 
       &::after {
         content: "";
@@ -100,7 +110,7 @@ $mobile-breakpoint: 768px;
         bottom: 5px;
         left: 0;
         background-color: $primary-color;
-        transition: width 0.3s ease-in-out;
+        transition: 0.3s;
       }
 
       &:hover::after,
@@ -110,7 +120,6 @@ $mobile-breakpoint: 768px;
 
       &.active {
         font-weight: bold;
-        color: $primary-color;
       }
     }
   }
@@ -121,77 +130,51 @@ $mobile-breakpoint: 768px;
     .tags-title {
       font-size: 0.75rem;
       font-weight: 700;
-      color:$primary-color;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
     .tags-container {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      padding: 0;
-      margin: 0;
       list-style: none;
+      padding: 0;
 
-      .tags-item {
-        .tags-link {
-          display: inline-block;
-          padding: 6px 12px;
-          background-color:rgb(50, 171, 141);
-          color: $tag-color;
-          border-radius: 20px;
-          text-decoration: none;
-          font-size: 0.85rem;
-          transition: all 0.2s ease;
+      .tags-link {
+        padding: 6px 12px;
+        background-color: rgb(50, 171, 141);
+        color: $tag-color;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 0.85rem;
 
-          &::before {
-            content: "#";
-            color: $tag-color;
-            margin-right: 2px;
-            font-weight: bold;
-          }
+        &::before {
+          content: "#";
+          margin-right: 2px;
+        }
 
-          &:hover {
-            transform: translateY(-1px);
-          }
+        &:hover {
+          transform: translateY(-1px);
         }
       }
     }
   }
 }
+
 .hamburger-menu {
-  display: none; 
-  color: white; 
-  
+  display: none;
+
   @media (max-width: $mobile-breakpoint) {
     display: block;
     position: fixed;
-    top: 15px;
+    top: 7px;
     left: 5px;
     font-size: 24px;
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 900;
-    color: white; 
-  }
-}
-
-.sidebar {
-  .close-btn {
-    display: none;
-    @media (max-width: $mobile-breakpoint) {
-      display: block;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      align-self: flex-end; 
-      padding: 10px;
-      margin-bottom: -10px;
-      color: #666;
-    }
+    z-index: 1100;
+    color: white;
   }
 }

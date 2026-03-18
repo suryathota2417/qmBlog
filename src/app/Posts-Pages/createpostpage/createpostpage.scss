@@ -1,0 +1,44 @@
+.create-post-container {
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  input,
+  textarea {
+    width: 80%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border-bottom: 1px solid grey;
+    font-size: 14px;
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  button {
+    width: 50%;
+    padding: 12px;
+    background:black;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:hover {
+      background: rgb(73, 72, 72);
+    }
+  }
+}
