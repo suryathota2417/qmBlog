@@ -1,51 +1,87 @@
-<div class="post-container">
-  <nav class="breadcrumb">
-    <a class="crumb" href="#">{{ postData.breadcrumb[0] }}</a> >
-    <a class="crumb" href="#">{{ postData.breadcrumb[1] }}</a> >
-    <span>{{ postData.breadcrumb[2] }}</span>
-  </nav>
+
+
+ <div class="post-container" *ngIf="post">
+
+  <!-- <nav class="breadcrumb">
+    <a href="/" class="crumb">{{ post.details.breadcrumb[0] }}</a> >
+    <a href="/" class="crumb">{{ post.details.breadcrumb[1] }}</a> >
+    <span>{{ post.details.breadcrumb[2] }}</span>
+  </nav> -->
 
   <div class="main">
+
     <div>
-      <h1 class="post-title">{{ postData.title }}</h1>
+      <h1 class="post-title">{{ post.title }}</h1>
+
       <div class="post-info">
-        <span>{{ postData.postInfo.published }}</span>
-        <span>{{ postData.postInfo.updated }}</span>
-        <span>{{ postData.postInfo.readTime }}<i class="bi bi-clock"></i></span>
+        <span>{{ post.details.postInfo.published }}</span>
+        <span>{{ post.details.postInfo.updated }}</span>
+        <span>{{ post.details.postInfo.readTime }} <i class="bi bi-clock"></i></span>
       </div>
     </div>
 
     <div class="author-meta">
+
       <div class="main-1">
-        <img class="avatar" [src]="postData.author.avatar" />
+
+        <img
+          class="avatar"
+          [src]="post.details.author.avatar"
+        />
 
         <div class="author-info">
-          <a class="author" href="https://www.w3schools.com/">{{ postData.author.name }}</a>
-          <span class="bio">{{ postData.author.bio }}</span>
+          <a class="author">
+            {{ post.details.author.name }}
+          </a>
+
+          <span class="bio">
+            {{ post.details.author.bio }}
+          </span>
         </div>
+
       </div>
+
     </div>
+
   </div>
 
-  <img class="featured-img" [src]="postData.featuredImage" />
+  <img
+    class="featured-img"
+    [src]="post.details.featuredImage"
+  />
 
   <article class="article-body">
-    <div *ngFor="let section of postData.article">
-      <h2 class="sub-heading">{{ section.heading }}</h2>
+
+    <div *ngFor="let section of post.details.article">
+
+      <h2 class="sub-heading">
+        {{ section.heading }}
+      </h2>
 
       <p class="sub-para">
         {{ section.paragraph }}
       </p>
+
     </div>
+
   </article>
 
   <div class="post-footer">
+
     <div class="tags">
-      <a class="tag" *ngFor="let tag of postData.tags">{{ tag }}</a>
+      <a
+        class="tag"
+        *ngFor="let tag of post.details.tags"
+      >
+        {{ tag }}
+      </a>
     </div>
 
     <div class="share">
-      <span class="share-title">Share On:</span>
+
+      <span class="share-title">
+        Share On:
+      </span>
 
       <button class="share-btn twitter">
         <i class="bi bi-twitter-x"></i>
@@ -58,70 +94,134 @@
       <button class="share-btn linkedin">
         <i class="bi bi-linkedin"></i>
       </button>
+
     </div>
+
   </div>
 
   <hr class="divider" />
 
   <section class="comments">
-    <h3 class="comment-head">Comments (12)</h3>
+
+    <h3 class="comment-head">
+      Comments ({{ post.details.comments.length }})
+    </h3>
 
     <div class="comment-form">
-      <h4 class="comment-subhead">Leave a Comment</h4>
 
-      <textarea class="comment-textarea" placeholder="Share your thoughts..."></textarea>
+      <h4 class="comment-subhead">
+        Leave a Comment
+      </h4>
 
-      <button class="post-cmt">Post Comment</button>
+      <textarea
+        class="comment-textarea"
+        placeholder="Share your thoughts..."
+      ></textarea>
+
+      <button class="post-cmt">
+        Post Comment
+      </button>
+
     </div>
 
-    <!-- Comment -->
 
-    <div class="comment" *ngFor="let comment of postData.comments">
-      <img class="avatar" [src]="comment.avatar" />
+    <div
+      class="comment"
+      *ngFor="let comment of post.details.comments"
+    >
+
+      <img
+        class="avatar"
+        [src]="comment.avatar"
+      />
 
       <div class="comment-content">
+
         <div class="meta">
-          <strong class="reply-user">{{ comment.user }}</strong>
-          <span>{{ comment.time }}</span>
+          <strong class="reply-user">
+            {{ comment.user }}
+          </strong>
+
+          <span>
+            {{ comment.time }}
+          </span>
         </div>
 
-        <p>{{ comment.text }}</p>
+        <p>
+          {{ comment.text }}
+        </p>
 
         <div class="actions">
-          <button class="reply-button">Reply</button>
           <button class="reply-button">
-            <i class="bi bi-hand-thumbs-up"></i> {{ comment.likes }}
+            Reply
+          </button>
+
+          <button class="reply-button">
+            <i class="bi bi-hand-thumbs-up"></i>
+            {{ comment.likes }}
           </button>
         </div>
 
-        <div class="reply" *ngFor="let reply of comment.replies">
+
+        <div
+          class="reply"
+          *ngFor="let reply of comment.replies"
+        >
+
           <div class="comment">
-            <img class="avatar" [src]="reply.avatar" />
+
+            <img
+              class="avatar"
+              [src]="reply.avatar"
+            />
 
             <div class="comment-content">
+
               <div class="meta">
-                <strong class="reply-user">{{ reply.user }}</strong>
-                <span>{{ reply.time }}</span>
+                <strong class="reply-user">
+                  {{ reply.user }}
+                </strong>
+
+                <span>
+                  {{ reply.time }}
+                </span>
               </div>
 
-              <p class="text-reply">{{ reply.text }}</p>
+              <p class="text-reply">
+                {{ reply.text }}
+              </p>
 
               <div class="actions">
-                <button class="reply-button">Reply</button>
                 <button class="reply-button">
-                  <i class="bi bi-hand-thumbs-up"></i> {{ reply.likes }}
+                  Reply
+                </button>
+
+                <button class="reply-button">
+                  <i class="bi bi-hand-thumbs-up"></i>
+                  {{ reply.likes }}
                 </button>
               </div>
+
             </div>
+
           </div>
 
-          <a class="view-more">View more replies...</a>
+          <a class="view-more">
+            View more replies...
+          </a>
+
         </div>
+
       </div>
+
     </div>
 
     <div>
-      <button class="load-more">Load More Comments</button>
+      <button class="load-more">
+        Load More Comments
+      </button>
     </div>
+
   </section>
+
 </div>

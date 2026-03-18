@@ -1,3 +1,4 @@
+
 <div class="main-feed">
 
   <div class="feed-header ">
@@ -18,8 +19,9 @@
 
       <p class="category">{{post.category}}</p>
       <div class="post-meta">
+        
         <h5 class="post-title">
-          <a href="#" class="post-link">
+         <a [routerLink]="['/post', post.id]" class="post-link">
             {{post.title}}
           </a>
         </h5>

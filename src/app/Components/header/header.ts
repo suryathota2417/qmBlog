@@ -1,6 +1,6 @@
 
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -10,24 +10,45 @@ import { Component } from '@angular/core';
 })
 export class Header {
 
-  a:number = 0;
+  constructor(private eRef: ElementRef) {}
 
-  showPopup:boolean = false;
+  notificationCount: number = 0;
 
-  showSearch:boolean = false;
+  showPopup: boolean = false;
+  showSearch: boolean = false;
+  showMenu: boolean = false;
 
-  showMenu:boolean = false;
-
-  popup(){
+  popup() {
     this.showPopup = !this.showPopup;
   }
 
-  toggleSearch(){
+  toggleSearch() {
     this.showSearch = !this.showSearch;
   }
 
-  toggleMenu(){
+  toggleMenu() {
     this.showMenu = !this.showMenu;
   }
 
+
+  @HostListener('document:click', ['$event'])
+  clickOutside(event: Event) {
+    const clickedInside = this.eRef.nativeElement.contains(event.target);
+
+    if (!clickedInside) {
+      this.showPopup = false;
+      this.showMenu = false;
+      this.showSearch = false;
+    }
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    const width = window.innerWidth;
+
+    if (width > 480) {
+      this.showSearch = false;
+      this.showMenu = false;
+    }
+  }
 }
