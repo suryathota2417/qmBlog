@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { POSTS } from '../../Data/posts.data';
+import { POSTSJSONDATA } from '../../../Data/posts.data';
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,7 +35,7 @@ export class Createpostpage {
   }
 
   const newPost = {
-    id: POSTS.length + 1,
+    id: POSTSJSONDATA.length + 1,
     title: this.title,
     category: this.category,
     author: this.author,
@@ -98,7 +98,7 @@ export class Createpostpage {
     }
   };
 
-  POSTS.push(newPost);
+  POSTSJSONDATA.push(newPost);
 
   this.router.navigate(['/']);
 }

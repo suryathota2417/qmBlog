@@ -1,38 +1,38 @@
 <form #postForm="ngForm" (ngSubmit)="addPost()">
   <div class="create-post-container container">
-    <h2 class="mb-4 text-center">Create New Post</h2>
+    <h2 class="mb-4 text-center title">Create New Post</h2>
 
     <div class="row g-3">
       <div class="col-md-6">
-        <input type="text" name="title" class="form-control"
+        <input type="text" name="title" class="form-control from-input"
           placeholder="Title"
           [(ngModel)]="title"
           required />
       </div>
 
       <div class="col-md-6">
-        <input type="text" name="category" class="form-control"
+        <input type="text" name="category" class="form-control from-input"
           placeholder="Category"
           [(ngModel)]="category"
           required />
       </div>
 
       <div class="col-md-6">
-        <input type="text" name="author" class="form-control"
+        <input type="text" name="author" class="form-control from-input"
           placeholder="Author"
           [(ngModel)]="author"
           required />
       </div>
 
       <div class="col-md-6">
-        <input type="number" name="readTime" class="form-control"
+        <input type="number" name="readTime" class="form-control from-input"
           placeholder="Read Time (min)"
           [(ngModel)]="readTime"
           required />
       </div>
 
       <div class="col-12">
-        <textarea name="summary" class="form-control"
+        <textarea name="summary" class="form-control from-input form-text"
           rows="4"
           placeholder="Summary"
           [(ngModel)]="summary"
@@ -41,7 +41,7 @@
       </div>
 
       <div class="col-md-6">
-        <input type="file" class="form-control"
+        <input type="file" class="form-control from-input"
           accept="image/*"
           (change)="onImageUpload($event)" />
       </div>
@@ -51,7 +51,7 @@
       </div>
 
       <div class="col-12 text-center">
-        <button class="btn btn-primary px-5"
+        <button class="btn btn-primary px-5 form-btn"
           type="submit"
           [disabled]="postForm.invalid">
           Post
