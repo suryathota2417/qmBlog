@@ -1,7 +1,7 @@
  
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {  POSTSJSONDATA } from '../../Data/posts.data';
+import {  POSTSJSONDATA } from '../../../Data/posts.data';
 import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({

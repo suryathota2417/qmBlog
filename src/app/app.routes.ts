@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { Explorepage } from './Posts-Pages/explorepage/explorepage';
-import { Postdetailspage } from './Posts-Pages/postdetailspage/postdetailspage';
-import { Signin } from './Accounts/Authentications/signin/signin';
-import { Signup } from './Accounts/Authentications/signup/signup';
-import { Profile } from './Accounts/ProfileData/profile/profile';
+import { Explorepage } from './Components/Posts-Pages/explorepage/explorepage';
+import { Postdetailspage } from './Components/Posts-Pages/postdetailspage/postdetailspage';
+import { Signin } from './Components/Accounts/Authentications/signin/signin';
+import { Signup } from './Components/Accounts/Authentications/signup/signup';
+import { Profile } from './Components/Accounts/ProfileData/profile/profile';
 
 export const routes: Routes = [
   {path: 'signin', component: Signin},
