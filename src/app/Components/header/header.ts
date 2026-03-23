@@ -1,22 +1,57 @@
 
+
+
+
+
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, DoCheck } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {
+export class Header implements OnInit, DoCheck {
 
-  constructor(private eRef: ElementRef) {}
+  constructor(private eRef: ElementRef, private router: Router) {}
 
   notificationCount: number = 0;
 
   showPopup: boolean = false;
   showSearch: boolean = false;
   showMenu: boolean = false;
+
+  isLoggedIn: boolean = false;
+
+
+  user: any = null;
+
+  ngOnInit() {
+    this.checkLogin();
+  }
+
+  ngDoCheck() {
+    this.checkLogin();
+  }
+
+
+  checkLogin() {
+    this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+    if (this.isLoggedIn) {
+      const data = localStorage.getItem('user');
+      this.user = data ? JSON.parse(data) : null;
+    } else {
+      this.user = null;
+    }
+  }
+
+  goToLogin() {
+    this.router.navigate(['/signin']);
+  }
 
   popup() {
     this.showPopup = !this.showPopup;
@@ -31,6 +66,16 @@ export class Header {
   }
 
 
+  logout() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('user');
+    this.isLoggedIn = false;
+    this.user = null;
+
+    this.router.navigate(['/signin']);
+  }
+
+
   @HostListener('document:click', ['$event'])
   clickOutside(event: Event) {
     const clickedInside = this.eRef.nativeElement.contains(event.target);
@@ -41,6 +86,7 @@ export class Header {
       this.showSearch = false;
     }
   }
+
 
   @HostListener('window:resize')
   onResize() {
