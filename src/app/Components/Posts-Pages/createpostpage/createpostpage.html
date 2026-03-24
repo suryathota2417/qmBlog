@@ -4,59 +4,79 @@
 
     <div class="row g-3">
       <div class="col-md-6">
-        <input type="text" name="title" class="form-control from-input"
+        <input
+          type="text"
+          name="title"
+          class="form-control from-input"
           placeholder="Title"
           [(ngModel)]="title"
-          required />
+          required
+        />
       </div>
 
       <div class="col-md-6">
-        <input type="text" name="category" class="form-control from-input"
+        <input
+          type="text"
+          name="category"
+          class="form-control from-input"
           placeholder="Category"
           [(ngModel)]="category"
-          required />
+          required
+        />
       </div>
 
       <div class="col-md-6">
-        <input type="text" name="author" class="form-control from-input"
+        <input
+          type="text"
+          name="author"
+          class="form-control from-input"
           placeholder="Author"
           [(ngModel)]="author"
-          required />
-      </div>
-
+          required
+        />
+      </div> 
       <div class="col-md-6">
-        <input type="number" name="readTime" class="form-control from-input"
+        <input
+          type="number"
+          name="readTime"
+          class="form-control from-input"
           placeholder="Read Time (min)"
           [(ngModel)]="readTime"
-          required />
+          required
+        />
       </div>
-
       <div class="col-12">
-        <textarea name="summary" class="form-control from-input form-text"
+        <textarea
+          name="summary"
+          class="form-control from-input form-text"
           rows="4"
           placeholder="Summary"
           [(ngModel)]="summary"
           required>
         </textarea>
       </div>
-
-      <div class="col-md-6">
-        <input type="file" class="form-control from-input"
+      <div class="col-md-6 file-upload">
+        <input
+          type="file"
+          class="form-control from-input"
           accept="image/*"
-          (change)="onImageUpload($event)" />
-      </div>
-
-      <div class="col-12 text-center" *ngIf="image">
-        <img [src]="image" class="img-fluid rounded" style="max-height: 200px" />
-      </div>
-
+          (change)="onImageUpload($event)"
+        />
+        <img
+          *ngIf="image"
+          [src]="image"
+          class="preview-img"
+        />
+      </div> 
       <div class="col-12 text-center">
-        <button class="btn btn-primary px-5 form-btn"
+        <button
+          class="btn btn-primary px-5 form-btn"
           type="submit"
           [disabled]="postForm.invalid">
           Post
         </button>
       </div>
+
     </div>
   </div>
 </form>
