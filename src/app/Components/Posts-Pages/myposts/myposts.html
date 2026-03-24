@@ -1,0 +1,72 @@
+<div class="main-feed">
+
+  <div class="feed-header">
+    <h2>My Posts</h2>
+  </div>
+
+  <div class="posts-list">
+
+    <article class="post-card m-1" *ngFor="let post of myPosts">
+
+      <p class="category">{{post.category}}</p>
+
+      <div class="post-meta">
+        
+        <h5 class="post-title">
+          <a [routerLink]="['/post', post.id]" class="post-link">
+            {{post.title}}
+          </a>
+        </h5>
+
+        <div class="author-info">
+          <img class="avatar" [src]="post.avatar">
+          <span>{{post.author}}</span>
+          <span>{{post.date}}</span>
+          <span>{{post.readTime}} min read</span>
+        </div>
+       
+      </div>
+
+      <p class="summary">
+        {{post.summary}}
+      </p>
+
+      <div class="post-footer">
+
+        <div>
+          <button class="icon-btn">
+            <i class="bi bi-hand-thumbs-up icon"></i>{{post.likes}}
+          </button>
+
+          <button class="icon-btn">
+            <i class="bi bi-chat icon"></i> {{post.comments}}
+          </button>
+        </div>
+
+        <div>
+          <button class="icon-btn">
+            <i class="bi bi-bookmark icon"></i>
+          </button>
+
+          <button class="icon-btn">
+            <i class="bi bi-share-fill icon"></i>
+          </button>
+          <button class="icon-btn" [routerLink]="['/edit-post', post.id]">
+            <i class="bi bi-pencil icon"></i>
+          </button>
+          <button class="icon-btn" (click)="deletePost(post.id)">
+            <i class="bi bi-trash icon"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+  <div *ngIf="myPosts.length === 0" class="text-center mt-4">
+    <p>No posts yet</p>
+  </div>
+
+</div>

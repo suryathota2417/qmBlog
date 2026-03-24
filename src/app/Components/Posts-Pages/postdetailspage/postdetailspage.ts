@@ -17,13 +17,15 @@ export class Postdetailspage {
 
   constructor(private route: ActivatedRoute){}
 
-  ngOnInit(){
+ ngOnInit() {
 
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('Post ID from route:', id);
+  const id = Number(this.route.snapshot.paramMap.get('id'));
+  console.log('Post ID from route:', id);
+  const savedPosts = JSON.parse(localStorage.getItem('posts') || '[]');
+  const allPosts = [...savedPosts, ...POSTSJSONDATA];
+  this.post = allPosts.find(p => p.id === id);
 
-    this.post = POSTSJSONDATA.find(p => p.id === id);
-
-  }
+  console.log('Found Post:', this.post);
+}
 
 }

@@ -4,6 +4,7 @@ export const POSTSJSONDATA = [
     title: 'Angular Routing Guide',
     category: 'Technology',
     author: 'John Doe',
+    userId: "user1",
     avatar: 'https://i.pravatar.cc/40',
     date: 'May 2026',
     readTime: 5,

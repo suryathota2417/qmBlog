@@ -5,12 +5,14 @@ import { Signin } from './Components/Accounts/Authentications/signin/signin';
 import { Signup } from './Components/Accounts/Authentications/signup/signup';
 import { Profile } from './Components/Accounts/ProfileData/profile/profile';
 import { Createpostpage } from './Components/Posts-Pages/createpostpage/createpostpage';
-
+import { Myposts } from './Components/Posts-Pages/myposts/myposts';
 export const routes: Routes = [
   {path: '', component: Explorepage},
   {path: 'signin', component: Signin},
   {path: 'signup', component: Signup},
   { path: 'create-post', component: Createpostpage },
+  { path: 'edit-post/:id', component: Createpostpage },
+  {path: 'my-posts', component: Myposts},
   {
     path: 'post/:id',
     component: Postdetailspage,

@@ -24,7 +24,8 @@ $mobile-breakpoint: 768px;
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: $sidebar-bg;
+  background-color:black;
+  color: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -67,8 +68,8 @@ $mobile-breakpoint: 768px;
       align-items: center;
       justify-content: center;
       padding: 10px;
-      background-color: $primary-color;
-      color: white;
+      background-color:white;
+      color:black;
       border: none;
       border-radius: 6px;
       cursor: pointer;
@@ -96,7 +97,7 @@ $mobile-breakpoint: 768px;
 
     .nav-item {
       text-decoration: none;
-      color: $primary-color;
+      color:white;
       padding: 10px 0;
       position: relative;
       width: fit-content;
@@ -109,7 +110,7 @@ $mobile-breakpoint: 768px;
         height: 2px;
         bottom: 5px;
         left: 0;
-        background-color: $primary-color;
+        background-color:white;
         transition: 0.3s;
       }
 
@@ -137,7 +138,7 @@ $mobile-breakpoint: 768px;
     .tags-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
       list-style: none;
       padding: 0;
 
