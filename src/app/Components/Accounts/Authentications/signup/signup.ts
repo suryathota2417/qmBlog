@@ -1,7 +1,11 @@
+
+
+
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +18,7 @@ export class Signup {
 
   signupForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.signupForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required]],
@@ -31,16 +35,29 @@ export class Signup {
 
     if (password !== confirmPassword) {
       form.get('confirmPassword')?.setErrors({ mismatch: true });
-    } else {
-      return null;
     }
     return null;
   }
 
   onSubmit() {
     if (this.signupForm.valid) {
-      console.log('Form Data:', this.signupForm.value);
-      alert('Signup Successful!');
+
+      const formData = this.signupForm.value;
+
+      const userData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        mobile: formData.mobile,
+        email: formData.email,
+        password: formData.password,
+        image: 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
+      };
+
+      localStorage.setItem('registeredUser', JSON.stringify(userData));
+
+      alert('Signup Successful! Please login');
+      this.router.navigate(['/signin']);
+
     } else {
       this.signupForm.markAllAsTouched();
     }

@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+
+
+
+
+
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -9,22 +14,41 @@ import { CommonModule } from '@angular/common';
   templateUrl: './profile.html',
   styleUrls: ['./profile.scss']
 })
-export class Profile {
+export class Profile implements OnInit {
 
   profileForm: FormGroup;
   imagePreview: string | ArrayBuffer | null = null;
 
+  user: any = null; // ✅ store logged-in user
+
   constructor(private fb: FormBuilder) {
 
     this.profileForm = this.fb.group({
-      firstName: ['Surya', Validators.required],
-      lastName: ['Thota', Validators.required],
-      mobile: [{ value: '9876543210', disabled: true }],
-      email: ['surya@gmail.com', [Validators.required, Validators.email]]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      mobile: [{ value: '', disabled: true }],
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
-  // Image Upload
+
+  ngOnInit() {
+    const data = localStorage.getItem('user');
+    this.user = data ? JSON.parse(data) : null;
+
+    if (this.user) {
+      this.profileForm.patchValue({
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        mobile: this.user.mobile,
+        email: this.user.email
+      });
+
+      this.imagePreview = this.user.image;
+    }
+  }
+
+ 
   onFileChange(event: any) {
     const file = event.target.files[0];
 
@@ -33,16 +57,35 @@ export class Profile {
 
       reader.onload = () => {
         this.imagePreview = reader.result;
+
+      
+        this.user.image = reader.result;
+
+
+        localStorage.setItem('user', JSON.stringify(this.user));
+        localStorage.setItem('registeredUser', JSON.stringify(this.user));
       };
 
       reader.readAsDataURL(file);
     }
   }
 
-  // Submit
+
   onSubmit() {
     if (this.profileForm.valid) {
-      console.log(this.profileForm.getRawValue());
+
+      const updatedData = this.profileForm.getRawValue();
+
+      
+      this.user = {
+        ...this.user,
+        ...updatedData
+      };
+
+
+      localStorage.setItem('user', JSON.stringify(this.user));
+      localStorage.setItem('registeredUser', JSON.stringify(this.user));
+
       alert('Profile Updated Successfully');
     }
   }

@@ -1,3 +1,5 @@
+
+
 <div class="signup-wrapper">
 
   <div class="signup-container">
@@ -5,59 +7,111 @@
 
     <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
- 
+    
       <div class="form-group">
         <label class="sub-head">First Name</label>
-        <input class="details-entering" type="text" formControlName="firstName" placeholder="Enter first name" />
-        <small class="validation" *ngIf="signupForm.get('firstName')?.touched && signupForm.get('firstName')?.invalid">
+        <input 
+          class="details-entering"
+          type="text" 
+          formControlName="firstName" 
+          placeholder="Enter first name" 
+        />
+        <small class="validation"
+          *ngIf="signupForm.get('firstName')?.touched && signupForm.get('firstName')?.invalid">
           Minimum 3 characters required
         </small>
       </div>
 
+     
       <div class="form-group">
-        <label  class="sub-head">Last Name</label>
-        <input class="details-entering" type="text" formControlName="lastName" placeholder="Enter last name" />
-        <small class="validation" *ngIf="signupForm.get('lastName')?.touched && signupForm.get('lastName')?.invalid">
+        <label class="sub-head">Last Name</label>
+        <input 
+          class="details-entering"
+          type="text" 
+          formControlName="lastName" 
+          placeholder="Enter last name" 
+        />
+        <small class="validation"
+          *ngIf="signupForm.get('lastName')?.touched && signupForm.get('lastName')?.invalid">
           Last name is required
         </small>
       </div>
 
-
+     
       <div class="form-group">
-        <label  class="sub-head">Mobile Number</label>
-        <input class="details-entering" type="text" formControlName="mobile" placeholder="Enter mobile number" />
-        <small class="validation" *ngIf="signupForm.get('mobile')?.touched && signupForm.get('mobile')?.invalid">
+        <label class="sub-head">Mobile Number</label>
+        <input 
+          class="details-entering"
+          type="text" 
+          formControlName="mobile" 
+          placeholder="Enter mobile number" 
+        />
+        <small class="validation"
+          *ngIf="signupForm.get('mobile')?.touched && signupForm.get('mobile')?.invalid">
           Enter valid 10-digit number
         </small>
       </div>
 
+    
       <div class="form-group">
         <label class="sub-head">Email</label>
-        <input class="details-entering" type="email" formControlName="email" placeholder="Enter email" />
-        <small class="validation" *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+        <input 
+          class="details-entering"
+          type="email" 
+          formControlName="email" 
+          placeholder="Enter email" 
+        />
+        <small class="validation"
+          *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
           Enter valid email
         </small>
       </div>
 
+
       <div class="form-group">
         <label class="sub-head">Password</label>
-        <input class="details-entering" type="password" formControlName="password" placeholder="Enter password" />
-        <small class="validation" *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+        <input 
+          class="details-entering"
+          type="password" 
+          formControlName="password" 
+          placeholder="Enter password" 
+        />
+        <small class="validation"
+          *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
           Minimum 6 characters required
         </small>
       </div>
 
+
       <div class="form-group">
-        <label  class="sub-head">Confirm Password</label>
-        <input class="details-entering" type="password" formControlName="confirmPassword" placeholder="Confirm password" />
-        <small class="validation" *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['mismatch']">
+        <label class="sub-head">Confirm Password</label>
+        <input 
+          class="details-entering"
+          type="password" 
+          formControlName="confirmPassword" 
+          placeholder="Confirm password" 
+        />
+        <small class="validation"
+          *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['mismatch']">
           Passwords do not match
         </small>
       </div>
 
-      <button class="submit-btn" type="submit" [disabled]="signupForm.invalid">Signup</button>
+
+      <button 
+        class="submit-btn" 
+        type="submit" 
+        [disabled]="signupForm.invalid">
+        Signup
+      </button>
 
     </form>
+
+    <p class="login-link">
+      Already have an account? 
+      <a routerLink="/signin">Login</a>
+    </p>
+
   </div>
 
 </div>
