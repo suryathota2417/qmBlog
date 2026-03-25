@@ -1,8 +1,4 @@
 
-
-
-
-
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';

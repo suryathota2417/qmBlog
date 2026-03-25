@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterModule} from '@angular/router'
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-leftsidebar',
@@ -11,8 +11,21 @@ import {RouterModule} from '@angular/router'
 export class Leftsidebar {
   isMenuOpen = false;
 
+  constructor(private router: Router) {}
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  onCreatePost() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+    if (isLoggedIn === 'true') {
+ 
+      this.router.navigate(['/create-post']);
+    } else {
+    
+      alert('Please login to create a post');
+    }
+  }
 }

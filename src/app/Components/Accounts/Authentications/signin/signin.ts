@@ -1,8 +1,4 @@
 
-
-
-
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -34,18 +30,31 @@ export class Signin {
       const { email, password } = this.signinForm.value;
 
       const storedUser = localStorage.getItem('registeredUser');
-      const user = storedUser ? JSON.parse(storedUser) : null;
 
-      if (user && email === user.email && password === user.password) {
 
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('user', JSON.stringify(user));
-
-        this.router.navigate(['/']);
-
-      } else {
-        this.errorMsg = 'Invalid email or password';
+      if (!storedUser) {
+        this.errorMsg = 'Account not found. Please register first.';
+        return;
       }
+
+      const user = JSON.parse(storedUser);
+
+
+      if (email !== user.email) {
+        this.errorMsg = 'Account not found. Please register first.';
+        return;
+      }
+
+
+      if (password !== user.password) {
+        this.errorMsg = 'Incorrect password. Please try again.';
+        return;
+      }
+
+
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('user', JSON.stringify(user));
+      this.router.navigate(['/']);
 
     } else {
       this.signinForm.markAllAsTouched();
