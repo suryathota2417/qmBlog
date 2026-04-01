@@ -2,6 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
+import { SearchService } from '../../Services/search-service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,11 @@ import { Router } from '@angular/router';
 })
 export class Header implements OnInit, DoCheck {
 
-  constructor(private eRef: ElementRef, private router: Router) {}
+  constructor(
+    private eRef: ElementRef, 
+    private router: Router,
+    private searchService: SearchService   
+  ) {}
 
   notificationCount: number = 0;
 
@@ -21,7 +26,6 @@ export class Header implements OnInit, DoCheck {
   showMenu: boolean = false;
 
   isLoggedIn: boolean = false;
-
 
   user: any = null;
 
@@ -32,7 +36,6 @@ export class Header implements OnInit, DoCheck {
   ngDoCheck() {
     this.checkLogin();
   }
-
 
   checkLogin() {
     this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -61,7 +64,6 @@ export class Header implements OnInit, DoCheck {
     this.showMenu = !this.showMenu;
   }
 
-
   logout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('user');
@@ -71,6 +73,19 @@ export class Header implements OnInit, DoCheck {
     this.router.navigate(['/signin']);
   }
 
+ 
+  onSearch(event: any) {
+    const value = event.target.value;
+    this.searchService.updateSearch(value);
+  }
+
+  onInputChange(event: any) {
+  const value = event.target.value;
+
+  if (!value || value.trim() === '') {
+    this.searchService.updateSearch('');
+  }
+}
 
   @HostListener('document:click', ['$event'])
   clickOutside(event: Event) {
@@ -82,7 +97,6 @@ export class Header implements OnInit, DoCheck {
       this.showSearch = false;
     }
   }
-
 
   @HostListener('window:resize')
   onResize() {

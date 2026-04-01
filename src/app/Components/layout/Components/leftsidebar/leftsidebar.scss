@@ -1,7 +1,7 @@
 $sidebar-bg: white;
 $primary-color: black;
 $tag-color: #fff;
-$mobile-breakpoint: 768px;
+$mobile-breakpoint: 758px;
 
 .sidebar-overlay {
   position: fixed;
@@ -25,6 +25,7 @@ $mobile-breakpoint: 768px;
   width: 250px;
   height: 100vh;
   background-color:black;
+  border: 1px solid white;
   color: white;
   padding: 20px;
   display: flex;
@@ -34,9 +35,29 @@ $mobile-breakpoint: 768px;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
 
+
+
+
+   @media (max-width: 780px) {
+    position: fixed;
+    top: 62px;
+    left: 0;
+    gap: 10px;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
+  
+
+
+
+
   @media (max-width: $mobile-breakpoint) {
     position: fixed;
-    top: 60px;
+    top: 53px;
     left: 0;
     gap: 10px;
     transform: translateX(-100%);
@@ -50,7 +71,7 @@ $mobile-breakpoint: 768px;
   .close-btn {
     display: none;
 
-    @media (max-width: $mobile-breakpoint) {
+    @media (max-width: 780px) {
       display: block;
       align-self: flex-end;
       background: none;
@@ -166,7 +187,7 @@ $mobile-breakpoint: 768px;
 .hamburger-menu {
   display: none;
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: 780px) {
     display: block;
     position: fixed;
     top: 7px;

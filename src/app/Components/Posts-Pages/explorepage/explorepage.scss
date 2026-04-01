@@ -1,11 +1,14 @@
+
 .main-feed {
   max-width: 800px;
   margin: auto;
+
   .feed-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
+
     .sort-dropdown {
       padding: 5px 5px;
       border: none;
@@ -21,9 +24,9 @@
 
     .post-card {
       border-radius: 8px;
-      padding:10px 10px;
+      padding: 10px 10px;
       background: white;
-
+ 
       .thumbnail {
         width: 100%;
         max-height: 200px;
@@ -34,7 +37,7 @@
 
       .category {
         font-size: 12px;
-        color:black;
+        color: black;
         margin: 0px !important;
         font-weight: bold;
       }
@@ -48,13 +51,16 @@
         font-size: 12px;
         color: gray;
         margin: 3px 0;
-        .post-title{
+
+        .post-title {
           color: black;
-          .post-link{
+
+          .post-link {
             color: black;
             text-decoration: none;
           }
         }
+
         .author-info {
           display: flex;
           align-items: center;
@@ -67,6 +73,7 @@
           border-radius: 50%;
         }
       }
+
       .post-footer {
         display: flex;
         justify-content: space-between;
@@ -87,34 +94,82 @@
     cursor: pointer;
     margin-left: 8px;
   }
+
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin: 25px 0;
+
+    button {
+      padding: 6px 12px;
+      border: none;
+      background: #f1f1f1;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #ddd;
+      }
+
+      &.active {
+        background: black;
+        color: white;
+        font-weight: bold;
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
+  }
 }
+
 @media (max-width: 768px) {
 
-  .post-meta{
+  .post-meta {
     flex-direction: column !important;
     align-items: flex-start !important;
   }
-  .feed-header{
+
+  .feed-header {
     flex-direction: column;
     margin-bottom: 20px !important;
-    .sort-dropdown{
+
+    .sort-dropdown {
       align-self: flex-end;
       margin-top: 10px;
     }
   }
 
-  .author-info{
+  .author-info {
     margin-top: 5px;
     flex-wrap: wrap;
   }
 
-  .summary{
+  .summary {
     margin-top: 5px;
   }
 
-}
-@media (min-width:1024px){
-    .main-feed{
-      max-width:1000px;
+
+  .pagination-controls {
+    flex-wrap: wrap;
+    gap: 4px;
+
+    button {
+      padding: 5px 8px;
+      font-size: 12px;
     }
- }
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .main-feed {
+    max-width: 1000px;
+  }
+}

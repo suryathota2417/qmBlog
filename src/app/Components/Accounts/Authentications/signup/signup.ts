@@ -48,7 +48,7 @@ export class Signup {
         mobile: formData.mobile,
         email: formData.email,
         password: formData.password,
-        image: 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
+        image: ''
       };
 
       localStorage.setItem('registeredUser', JSON.stringify(userData));
