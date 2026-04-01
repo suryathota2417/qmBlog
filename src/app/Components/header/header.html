@@ -1,6 +1,6 @@
+
 <div class="container-fluid header-main">
   <div class="row align-items-center m-0 p-0">
-
 
     <div class="col logo-col">
       <a href="/">
@@ -8,22 +8,24 @@
       </a>
     </div>
 
-
     <div class="col search-col" *ngIf="isLoggedIn" [class.mobile-active]="showSearch">
       <div class="search-box">
         <i class="bi bi-search search-icon"></i>
-        <input class="search-input" type="text" placeholder="Search Posts, topics, or authors" />
+        <input 
+          class="search-input" 
+          type="text" 
+          placeholder="Search Posts, topics, or authors"
+          (keyup.enter)="onSearch($event)"
+          (input)="onInputChange($event)"     
+        />
       </div>
     </div>
 
-
     <div class="col profile-col">
-
 
       <button *ngIf="!isLoggedIn" class="login-btn" (click)="goToLogin()">
         Login
       </button>
-
 
       <ng-container *ngIf="isLoggedIn">
         
@@ -38,8 +40,6 @@
             {{ notificationCount }}
           </span>
         </p>
-
-
 
         <p class="settings" (click)="popup()">
           <i class="bi bi-gear settings-icon"></i>
@@ -59,7 +59,6 @@
           </ul>
 
         </div>
-
 
         <div class="mobile-icons">
           <i class="bi bi-search mb-icons" (click)="toggleSearch()"></i>

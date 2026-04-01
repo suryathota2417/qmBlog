@@ -4,6 +4,7 @@ $tag-color: #fff;
 
 $mobile: 576px;
 $tablet: 768px;
+$mobile-breakpoint: 758px;
 
 .sidebar-overlay {
   position: fixed;
@@ -26,8 +27,8 @@ $tablet: 768px;
 .sidebar {
   width: 250px;
   height: 100vh;
-  border:1px solid white;
-  background-color: black;
+  background-color:black;
+  border: 1px solid white;
   color: white;
   padding: 20px;
   display: flex;
@@ -37,9 +38,29 @@ $tablet: 768px;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
 
-  @media (max-width: $mobile) {
+
+
+
+   @media (max-width: 780px) {
     position: fixed;
-    top: 60px;
+    top: 62px;
+    left: 0;
+    gap: 10px;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
+  
+
+
+
+
+  @media (max-width: $mobile-breakpoint) {
+    position: fixed;
+    top: 53px;
     left: 0;
     width: 220px;
     gap: 10px;
@@ -63,7 +84,7 @@ $tablet: 768px;
   .close-btn {
     display: none;
 
-    @media (max-width: $mobile) {
+    @media (max-width: 780px) {
       display: block;
       align-self: flex-end;
       background: none;
@@ -182,7 +203,7 @@ $tablet: 768px;
 .hamburger-menu {
   display: none;
 
-  @media (max-width: $mobile) {
+  @media (max-width: 780px) {
     display: block;
     position: fixed;
     top: 10px;

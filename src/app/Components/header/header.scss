@@ -214,6 +214,52 @@
     flex: 1;
     padding-left: 20px;
   }
+
+  .menu-container {
+  position: absolute;
+  top: 62px;
+  right: 0;
+  background: black;
+  display: none;
+  z-index: 2000;
+  min-width: 200px;
+  border: 1px solid white;
+
+  .menu-header {
+    display: none;
+  }
+
+  .menu-list {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+
+    .menu-item {
+      padding: 8px 15px;
+      cursor: pointer;
+      color: white;
+      border-radius: 10px;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      &:hover {
+        background: white;
+        color: black;
+
+        a {
+          color: black;
+        }
+      }
+    }
+
+    .logout {
+      color: #ff4d4f;
+    }
+  }
+}
 }
 
 
@@ -245,6 +291,7 @@
       background: black;
       padding: 10px;
       z-index: 1000;
+       
     }
 
     .search-box {
@@ -288,7 +335,7 @@
     .menu-header {
       display: flex;
       justify-content: flex-end;
-      padding: 10px;
+      padding-right: 10px;
 
       .close-btn {
         font-size: 18px;
@@ -298,11 +345,10 @@
     }
 
     .menu-list {
-      padding: 15px;
+      padding: 0px 15px;
 
       .menu-item {
         padding: 10px;
-        margin-bottom: 5px;
       }
     }
   }
