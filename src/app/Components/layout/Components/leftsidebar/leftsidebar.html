@@ -20,10 +20,10 @@
     <div class="tag-section">
         <h4 class="tags-title">EXPLORE TAGS</h4>
         <ul class="tags-container">
-            <li class="tags-item"><a class="tags-link" routerLink="">Apollo</a></li>
-            <li class="tags-item"><a class="tags-link" routerLink="">Design</a></li>
-            <li class="tags-item"><a class="tags-link" routerLink="">Angular</a></li>
-            <li class="tags-item"><a class="tags-link" routerLink="">Platform</a></li>
+            <li class="tags-item"><a class="tags-link" (click)="selectTag('Apollo')">Apollo</a></li>
+            <li class="tags-item"><a class="tags-link" (click)="selectTag('Design')">Design</a></li>
+            <li class="tags-item"><a class="tags-link" (click)="selectTag('Angular')">Angular</a></li>
+            <li class="tags-item"><a class="tags-link" (click)="selectTag('Platform')">Platform</a></li>
         </ul>
     </div>
 </div>

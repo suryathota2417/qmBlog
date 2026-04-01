@@ -18,6 +18,7 @@ export class Createpostpage implements OnInit {
   image = '';
   summary = '';
   readTime = 0;
+  tags = '';
 
   isEditMode = false;
   editId!: number;
@@ -41,11 +42,11 @@ export class Createpostpage implements OnInit {
         this.image = post.image;
         this.summary = post.summary;
         this.readTime = post.readTime;
+        this.tags = (post.details?.tags || []).join(', ');
       }
     }
   }
 
-  
   addPost() {
     if (
       !this.title.trim() ||
@@ -59,10 +60,13 @@ export class Createpostpage implements OnInit {
       return;
     }
 
+    const tagsArray = this.tags
+      ? [...new Set(this.tags.split(',').map(tag => tag.trim()))]
+      : [];
+
     let posts = JSON.parse(localStorage.getItem('posts') || '[]');
 
     if (this.isEditMode) {
-      
       posts = posts.map((p: any) => {
         if (p.id === this.editId) {
           return {
@@ -73,12 +77,20 @@ export class Createpostpage implements OnInit {
             summary: this.summary,
             image: this.image,
             readTime: this.readTime,
-            date: "Updated"
+            date: "Updated",
+            details: {
+              ...p.details,
+              featuredImage: this.image,
+              tags: tagsArray.length ? tagsArray : p.details.tags,
+              postInfo: {
+                ...p.details.postInfo,
+                updated: "Now"
+              }
+            }
           };
         }
         return p;
       });
-
     } else {
       const newPost = {
         id: Date.now(),
@@ -112,7 +124,7 @@ export class Createpostpage implements OnInit {
               paragraph: this.summary
             }
           ],
-          tags: [this.category],
+          tags: tagsArray.length ? tagsArray : [this.category],
           comments: []
         }
       };
@@ -121,7 +133,6 @@ export class Createpostpage implements OnInit {
     }
 
     localStorage.setItem('posts', JSON.stringify(posts));
-
     this.router.navigate(['/my-posts']);
   }
 

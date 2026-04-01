@@ -1,7 +1,9 @@
 $sidebar-bg: white;
 $primary-color: black;
 $tag-color: #fff;
-$mobile-breakpoint: 768px;
+
+$mobile: 576px;
+$tablet: 768px;
 
 .sidebar-overlay {
   position: fixed;
@@ -14,17 +16,18 @@ $mobile-breakpoint: 768px;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-}
 
-.sidebar-overlay.visible {
-  opacity: 1;
-  visibility: visible;
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color:black;
+  border:1px solid white;
+  background-color: black;
   color: white;
   padding: 20px;
   display: flex;
@@ -34,23 +37,33 @@ $mobile-breakpoint: 768px;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $mobile) {
     position: fixed;
     top: 60px;
     left: 0;
+    width: 220px;
     gap: 10px;
     transform: translateX(-100%);
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
 
     &.is-open {
       transform: translateX(0);
     }
   }
 
+  @media (min-width: 577px) and (max-width: $tablet) {
+    position: relative;
+    top: 0;
+    width: 200px;
+    padding: 15px;
+    gap: 15px;
+    transform: none;
+  }
+
   .close-btn {
     display: none;
 
-    @media (max-width: $mobile-breakpoint) {
+    @media (max-width: $mobile) {
       display: block;
       align-self: flex-end;
       background: none;
@@ -68,8 +81,8 @@ $mobile-breakpoint: 768px;
       align-items: center;
       justify-content: center;
       padding: 10px;
-      background-color:white;
-      color:black;
+      background-color: white;
+      color: black;
       border: none;
       border-radius: 6px;
       cursor: pointer;
@@ -97,7 +110,7 @@ $mobile-breakpoint: 768px;
 
     .nav-item {
       text-decoration: none;
-      color:white;
+      color: white;
       padding: 10px 0;
       position: relative;
       width: fit-content;
@@ -110,7 +123,7 @@ $mobile-breakpoint: 768px;
         height: 2px;
         bottom: 5px;
         left: 0;
-        background-color:white;
+        background-color: white;
         transition: 0.3s;
       }
 
@@ -141,6 +154,9 @@ $mobile-breakpoint: 768px;
       gap: 10px;
       list-style: none;
       padding: 0;
+      .tags-item :hover{
+        cursor: pointer;
+      }
 
       .tags-link {
         padding: 6px 12px;
@@ -166,11 +182,11 @@ $mobile-breakpoint: 768px;
 .hamburger-menu {
   display: none;
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $mobile) {
     display: block;
     position: fixed;
-    top: 7px;
-    left: 5px;
+    top: 10px;
+    left: 10px;
     font-size: 24px;
     background: none;
     border: none;
