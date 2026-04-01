@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { TagService } from '../../../../service/tag';
 
 @Component({
   selector: 'app-leftsidebar',
@@ -11,7 +12,9 @@ import { Router, RouterModule } from '@angular/router';
 export class Leftsidebar {
   isMenuOpen = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+  private tagService: TagService
+  ) {}
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -28,4 +31,7 @@ export class Leftsidebar {
       alert('Please login to create a post');
     }
   }
+  selectTag(tag: string) {
+  this.tagService.setTag(tag);
+}
 }

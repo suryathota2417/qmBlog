@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { POSTSJSONDATA } from '../../../Data/posts.data';
 import { RouterLink, RouterModule } from '@angular/router';
+import { TagService } from '../../../service/tag';
 import { SearchService } from '../../../Services/search-service';
 
 @Component({
@@ -13,7 +14,7 @@ import { SearchService } from '../../../Services/search-service';
   styleUrl: './explorepage.scss',
 })
 export class Explorepage implements OnInit {
-
+  allPosts: any[] = [];
   posts: any[] = [];
   filteredPosts: any[] = [];   
   paginatedPosts: any[] = [];
@@ -25,8 +26,27 @@ export class Explorepage implements OnInit {
 
   constructor(private searchService: SearchService) {} 
 
+  constructor(private tagService: TagService) {}
+
   ngOnInit() {
+
     const savedPosts = JSON.parse(localStorage.getItem('posts') || '[]');
+
+    this.allPosts = [...savedPosts, ...POSTSJSONDATA];
+    this.posts = [...this.allPosts];
+    this.tagService.selectedTag$.subscribe(tag => {
+
+      console.log('Received tag:', tag);
+      if (!tag) {
+        this.posts = [...this.allPosts];
+      } 
+      else {
+        this.posts = this.allPosts.filter(post =>
+          post.details?.tags?.includes(tag)
+        );
+      }
+
+    });
     this.posts = [...savedPosts, ...POSTSJSONDATA];
 
     this.filteredPosts = this.posts;
